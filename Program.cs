@@ -55,6 +55,7 @@ namespace tareaReloaded
                 res += CalcularCocienteRecursiva(dividendo, divisor, resto, cociente).ToString();
             }
             
+            // * Agrega 0 al resto y vuelve a calcular un nuevo resto.
             dividendo = resto * 10;
             resto = dividendo % divisor;
 
@@ -63,9 +64,9 @@ namespace tareaReloaded
 
         static void Main(string[] args)
         {
-            //Console.WriteLine(DividirDecimalesRecursiva(21, 4, 21%4, 1));
+            Console.WriteLine(DividirDecimalesRecursiva(21, 4, 21%4, 1));
             //Console.WriteLine(CalcularCocienteRecursiva(9, 4, 9%4, 1));
-            Console.WriteLine(CalcularCocienteIteracion(9, 4, 9%4, 1));
+            //Console.WriteLine(CalcularCocienteIteracion(9, 4, 9%4, 1));
         }
     }
 }
