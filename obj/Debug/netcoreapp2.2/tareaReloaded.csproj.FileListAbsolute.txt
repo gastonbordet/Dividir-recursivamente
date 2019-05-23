@@ -1,0 +1,11 @@
+C:\Users\gastonb\Proyects\tareaReloaded\bin\Debug\netcoreapp2.2\tareaReloaded.deps.json
+C:\Users\gastonb\Proyects\tareaReloaded\bin\Debug\netcoreapp2.2\tareaReloaded.runtimeconfig.json
+C:\Users\gastonb\Proyects\tareaReloaded\bin\Debug\netcoreapp2.2\tareaReloaded.runtimeconfig.dev.json
+C:\Users\gastonb\Proyects\tareaReloaded\bin\Debug\netcoreapp2.2\tareaReloaded.dll
+C:\Users\gastonb\Proyects\tareaReloaded\bin\Debug\netcoreapp2.2\tareaReloaded.pdb
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.csprojAssemblyReference.cache
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.csproj.CoreCompileInputs.cache
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.AssemblyInfoInputs.cache
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.AssemblyInfo.cs
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.dll
+C:\Users\gastonb\Proyects\tareaReloaded\obj\Debug\netcoreapp2.2\tareaReloaded.pdb
