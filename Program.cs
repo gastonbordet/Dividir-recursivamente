@@ -4,28 +4,32 @@ namespace tareaReloaded
 {
     class Program
     {
-        static int CalcularCocienteIteracion(int dividendo, int divisor, int resto, int cociente = 1)
+        static int CalcularCocienteIteracion(int dividendo, int divisor, int cociente = 1)
         {
             while (dividendo - divisor > 0) 
-            {   if (dividendo - divisor > 0)
+            {   
+                if (dividendo - divisor > 0)
                     cociente++;
                 dividendo -= divisor;
             }
 
             // ! Si el resto no es 0 necesito restarle un numero para calcular el decimal.
-            return resto == 0 ? cociente : cociente - 1;
+            //return resto == 0 ? cociente : cociente - 1;
+            return dividendo - divisor < 0 ? cociente - 1  : cociente; 
+            
         }
 
-        static int CalcularCocienteRecursiva(int dividendo, int divisor, int resto, int cociente = 1) 
+        static int CalcularCocienteRecursiva(int dividendo, int divisor, int cociente = 1) 
         {
             if (dividendo - divisor <= 0) 
             {
                 // ! Si el resto no es 0 necesito restarle un numero para calcular el decimal.
-                return resto == 0 ? cociente : cociente - 1;
+                //return resto == 0 ? cociente : cociente - 1;
+                return dividendo - divisor < 0 ? cociente - 1  : cociente;
             }
 
             cociente++;
-            return CalcularCocienteRecursiva(dividendo - divisor, divisor, resto, cociente);
+            return CalcularCocienteRecursiva(dividendo - divisor, divisor, cociente);
         }
         
         static float DividirDecimalesRecursivaSinDivision(int dividendo, int divisor, int resto, int cociente = 1, string res = "") 
@@ -92,13 +96,13 @@ namespace tareaReloaded
         static void Main(string[] args)
         {
             //Console.WriteLine(DividirDecimalesRecursivaSinDivision(21, 4, 21%4));
-            Console.WriteLine(DividirDecimalesRecursivaSinDivision2(21, 4, 21%4));
+            //Console.WriteLine(DividirDecimalesRecursivaSinDivision2(21, 4, 21%4));
             //Console.WriteLine(DividirDecimalesRecursivaSinDivision(13, 5, 13%5));
-            Console.WriteLine(DividirDecimalesRecursivaSinDivision2(13, 5, 13%5));
+            //Console.WriteLine(DividirDecimalesRecursivaSinDivision2(13, 5, 13%5));
             Console.WriteLine(CalcularCocienteRecursiva(8, 4, 8%4));
             Console.WriteLine(CalcularCocienteRecursiva(9, 4, 9%4));
-            Console.WriteLine(CalcularCocienteIteracion(12, 4, 12%4));
-            Console.WriteLine(CalcularCocienteIteracion(13, 4, 13%4));
+            //Console.WriteLine(CalcularCocienteIteracion(12, 4, 12%4));
+            //Console.WriteLine(CalcularCocienteIteracion(13, 4, 13%4));
         }
     }
 }
