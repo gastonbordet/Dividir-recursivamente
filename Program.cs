@@ -63,6 +63,10 @@ namespace tareaReloaded
         {
             int ultimoNumero = 0;
 
+            // Si el resto es 0 no hace falta calcular decimales 
+            if (dividendo % divisor == 0) return CalcularCocienteIteracion(dividendo, divisor);
+
+            // Calculo para decimales
             while (res < 100000) 
             {
                 int resto = dividendo % divisor;
