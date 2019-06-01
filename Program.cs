@@ -6,8 +6,7 @@ namespace tareaReloaded
     {
         static int CalcularCocienteIteracion(int dividendo, int divisor, int cociente = 1)
         {
-            if ( divisor == 0) throw new Exception();
-
+            
             // Busco si alguno de los numeros ingresados es negativo
             bool minus = dividendo < 0 || divisor < 0;
             
@@ -37,8 +36,6 @@ namespace tareaReloaded
         static int CalcularCocienteRecursiva(int dividendo, int divisor, int cociente = 1, bool minus = false) 
         {
 
-            if ( divisor == 0) throw new Exception();
-
             // Busco si alguno de los numeros ingresados es negativo
             if (!minus) minus = dividendo < 0 || divisor < 0;
             
@@ -62,71 +59,39 @@ namespace tareaReloaded
             return CalcularCocienteRecursiva(dividendo - divisor, divisor, cociente, minus);
         }
         
-        /*
-        static float DividirDecimalesRecursivaSinDivision(int dividendo, int divisor, int cociente = 1, string res = "") 
+        static float DividirConDecimales(int dividendo, int divisor, int cociente = 1, float res = 0) 
         {
-            int resto = dividendo % divisor;
-            // * Si el dividendo es 0 el cociente siempre sera 0.
-            if (dividendo == 0)
-            {
-                return 0;
-            }
+            int ultimoNumero = 0;
 
-            // * Si el resto es 0 el cociente sera entero.
-            if (resto == 0) 
+            while (res < 100000) 
             {
-                res += CalcularCocienteRecursiva(dividendo, divisor, cociente);
-                float result = float.Parse(res);
-                return result;
-            }
+                int resto = dividendo % divisor;
+                int nuevoCociente = CalcularCocienteIteracion(dividendo, divisor, cociente);
 
-            // ! Ejecuto solo la primera vez para conseguir el primer numero del cociente
-            if (res == "") 
-            {
-                res += CalcularCocienteRecursiva(dividendo, divisor, cociente).ToString() + ",";
-            }
-            else 
-            {
-                res += CalcularCocienteRecursiva(dividendo, divisor, cociente).ToString();
-            }
-            
-            // * Agrega 0 al resto y vuelve a calcular un nuevo resto.
-            dividendo = resto * 10;
-            resto = dividendo % divisor;
+                // Valido que el resultado no sea periodico
+                if (ultimoNumero == nuevoCociente) return res * (float) 0.01;
 
-            return DividirDecimalesRecursivaSinDivision(dividendo, divisor, cociente, res);    
+                // * Si el resto es 0 el cociente sera entero.
+                if (resto == 0) 
+                {
+                    res += nuevoCociente;
+                    if (res < 100) res *= 10; 
+                    return res * (float) 0.01;
+                }
+
+                else 
+                {
+                    res = res * 10 + nuevoCociente * 10;
+                }
+                
+                // * Agrega 0 al resto y vuelve a calcular un nuevo resto.
+                dividendo = resto * 10;
+                resto = dividendo % divisor;
+                ultimoNumero = nuevoCociente;
+            }   
+
+            return res * (float) 0.01;
         }
-
-        static float DividirDecimalesRecursivaSinDivision2(int dividendo, int divisor, int cociente = 1, float res = 0) 
-        {
-            int resto = dividendo % divisor;
-            // * Si el dividendo es 0 el cociente siempre sera 0.
-            if (dividendo == 0)
-            {
-                return 0;
-            }
-
-            // * Si el resto es 0 el cociente sera entero.
-            if (resto == 0) 
-            {
-                res += CalcularCocienteRecursiva(dividendo, divisor, cociente);
-                if (res < 100) res *= 10; 
-                return res * (float) 0.01;
-            }
-
-            else 
-            {
-                res = res * 10 + CalcularCocienteRecursiva(dividendo, divisor, cociente) * 10;
-            }
-            
-            // * Agrega 0 al resto y vuelve a calcular un nuevo resto.
-            dividendo = resto * 10;
-            resto = dividendo % divisor;
-
-            return DividirDecimalesRecursivaSinDivision2(dividendo, divisor, cociente, res);    
-        }
-
-        */
 
         static void Error()
         {
@@ -148,6 +113,7 @@ namespace tareaReloaded
                     {
                         Console.WriteLine("Division iterativa: " + CalcularCocienteIteracion(dividendo, divisor));
                         Console.WriteLine("Division recursiva: " + CalcularCocienteRecursiva(dividendo, divisor));
+                        Console.WriteLine("Division con decimales: " + DividirConDecimales(dividendo, divisor));
                     } 
                     catch 
                     {
@@ -155,16 +121,10 @@ namespace tareaReloaded
                     }   
                 }
 
-                else 
-                {
-                    Error();
-                }
+                else Error();
             }
-
-            else 
-            {
-                Error();
-            }
+            
+            else Error();
         }
 
         static void Main(string[] args)
