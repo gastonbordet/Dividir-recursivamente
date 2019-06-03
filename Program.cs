@@ -6,7 +6,10 @@ namespace tareaReloaded
     {
         static int CalcularCocienteIteracion(int dividendo, int divisor, int cociente = 1)
         {
-            
+            if (divisor == 0) 
+            {
+                throw new Exception();
+            }
             // Busco si alguno de los numeros ingresados es negativo
             bool minus = dividendo < 0 || divisor < 0;
             
@@ -36,6 +39,10 @@ namespace tareaReloaded
         static int CalcularCocienteRecursiva(int dividendo, int divisor, int cociente = 1, bool minus = false) 
         {
 
+            if (divisor == 0) 
+            {
+                throw new Exception();
+            }
             // Busco si alguno de los numeros ingresados es negativo
             if (!minus) minus = dividendo < 0 || divisor < 0;
             
